@@ -19,8 +19,8 @@ A simple script to enroll in the Romanian Solana Builders Program by registering
 1. Clone this repository:
 
 ```bash
-git clone <repository-url>
-cd prereqs
+git clone https://github.com/First-Romanian-Solana-Developer-Program/prereq-task.git
+cd prereq-task
 ```
 
 2. Install dependencies:
@@ -47,7 +47,7 @@ The script will:
 If successful, you'll see a confirmation message and a link to view your transaction on Solana Explorer.
 
 ```
-~/projects/solana-developers-program/prereqs main* ❯ npm start                                                                                                                                                                                        17:13:56
+~/projects/solana-developers-program/prereqs main* ❯ npm start                                                                                                                                        
 
 > prereqs@1.0.0 start
 > ts-node ./index.ts
