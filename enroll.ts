@@ -3,7 +3,6 @@ import { initializePrereqs } from "./utils";
 import { registerC3 } from "./client/umi/src";
 import {
   publicKey,
-  PublicKey,
   TransactionBuilderSendAndConfirmOptions,
 } from "@metaplex-foundation/umi";
 import {
@@ -39,13 +38,13 @@ export async function enroll(
     }).sendAndConfirm(umi, opts);
 
     if (txResult.result.value.err) {
-      throw Error("txResult.result.value.err");
+      throw txResult.result.value.err;
     }
 
     console.log(
       `✅ Success! Check out your TX here: https://explorer.solana.com/tx/${base58.deserialize(txResult.signature)[0]}?cluster=devnet`,
     );
   } catch (e) {
-    console.error(`Oops, something went wrong: ${e}`);
+    throw e;
   }
 }

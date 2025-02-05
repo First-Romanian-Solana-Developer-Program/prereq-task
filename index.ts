@@ -10,17 +10,21 @@ const connection = new Connection("https://api.devnet.solana.com");
 
 // Execute our enrollment transaction
 (async () => {
-  let kp = await generateKeypair(KEYPAIR_FNAME);
+  try {
+    let kp = await generateKeypair(KEYPAIR_FNAME);
 
-  // airdop
-  await airdrop(connection, kp.publicKey, 1 * LAMPORTS_PER_SOL);
+    // airdop
+    await airdrop(connection, kp.publicKey, 1 * LAMPORTS_PER_SOL);
 
-  const github = await getInput("Enter your github account name: ");
+    const github = await getInput("Enter your github account name: ");
 
-  // register
-  await enroll(github, kp, ADMIN_PUBKEY);
+    // register
+    await enroll(github, kp, ADMIN_PUBKEY);
 
-  console.log(
-    `🎉 Congratulations, ${github}! You're enrolled in our  🇷🇴Solana Builders Program`,
-  );
+    console.log(
+      `🎉 Congratulations, ${github}! You're enrolled in our first Romanian Solana Builders Program`,
+    );
+  } catch (err) {
+    console.error(`❌ Oops, something went wrong: ${err}`);
+  }
 })();
